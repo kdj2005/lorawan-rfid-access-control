@@ -5,7 +5,7 @@ const Utilisateur = require("../model/User");
 
 async function creerUtilisateur(req, res) {
     const { cartId, noms, prenoms, email,role } = req.body;
-    if (!cartId || !name || !surname || !email|| !role) {
+    if (!cartId || !noms || !prenoms || !email|| !role) {
         return res.status(400).json({ message: "vous devez remplir tous les champs" });
 
     }
