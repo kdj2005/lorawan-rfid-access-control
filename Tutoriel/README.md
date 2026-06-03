@@ -125,11 +125,11 @@ async function myAnalysis(context, scope) {
     const variablesToSend = [
       {
         variable: "username",
-        value: data.username || "Inconnu",
+        value: data.noms || "Inconnu",
       },
       {
         variable: "firstname",
-        value: data.prenom || "Inconnu",
+        value: data.prenoms || "Inconnu",
       },
       {
   variable: "autorisation",
