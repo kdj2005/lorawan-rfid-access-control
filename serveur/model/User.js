@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
             validator: function(value){
                 return validator.isEmail(value);
             },
-            message: "Invalid email format"
+            message: "format de mail invalide"
         }
     },
     role:{
