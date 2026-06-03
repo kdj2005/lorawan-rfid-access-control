@@ -4,7 +4,7 @@ const Utilisateur = require("../model/User");
 
 
 async function creerUtilisateur(req, res) {
-    const { cartId, name, surname, email,role } = req.body;
+    const { cartId, noms, prenoms, email,role } = req.body;
     if (!cartId || !name || !surname || !email|| !role) {
         return res.status(400).json({ message: "vous devez remplir tous les champs" });
 
@@ -14,7 +14,7 @@ async function creerUtilisateur(req, res) {
         if (existingUser) {
             return res.status(400).json({ message: "Un utilisateur avec ce cartId existe déjà" });
         }
-        const utilisateur = new Utilisateur({ cartId, name, surname, email,role });
+        const utilisateur = new Utilisateur({ cartId, noms, prenoms, email,role });
         await utilisateur.save();
         res.status(201).json({ message: "Utilisateur créé avec succès", utilisateur });
     } catch (error) {
@@ -52,8 +52,8 @@ async function userInfo(req, res) {
 
         res.status(200).json({
             message: "Informations de l'utilisateur",
-            noms: utilisateur.name,
-            prenoms: utilisateur.surname,
+            noms: utilisateur.noms,
+            prenoms: utilisateur.prenoms,
             autorisation: autorisation,
             success: true,
             error: false
